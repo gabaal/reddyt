@@ -1,4 +1,5 @@
 "use client";
+
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 import ReddishLogo from "@/images/Reddish Full.png";
@@ -6,6 +7,7 @@ import ReddishLogoOnly from "@/images/Reddish Logo Only.png";
 import { ChevronLeftIcon, MenuIcon } from "lucide-react";
 import Image from "next/image";
 import { useSidebar } from "../ui/sidebar";
+import CreatePost from "../post/CreatePost";
 
 function Header() {
   const { toggleSidebar, open, isMobile } = useSidebar();
@@ -39,6 +41,8 @@ function Header() {
 
       {/* Right Side */}
       <div className="flex items-center gap-2">
+        <CreatePost />
+
         <SignedIn>
           <UserButton />
         </SignedIn>

@@ -6,7 +6,7 @@ import { getCommentReplies } from "@/sanity/lib/comment/getCommentReplies";
 import { UserCircle } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-
+import TimeAgo from "../TimeAgo";
 import CommentList from "./CommentList";
 import CommentReply from "./CommentReply";
 import PostVoteButtons from "../post/PostVoteButtons";
@@ -57,7 +57,7 @@ async function Comment({
               {comment.author?.username || "Anonymous"}
             </h3>
             <span className="text-xs text-gray-500">
-              {/* <TimeAgo date={new Date(comment.createdAt!)} /> */}
+              <TimeAgo date={new Date(comment.createdAt!)} />
             </span>
           </div>
 

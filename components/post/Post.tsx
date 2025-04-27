@@ -5,13 +5,15 @@ import {
 import { getPostComments } from "@/sanity/lib/vote/getPostComments";
 import { getPostVotes } from "@/sanity/lib/vote/getPostVotes";
 import { getUserPostVoteStatus } from "@/sanity/lib/vote/getUserPostVoteStatus";
-
+import TimeAgo from "../TimeAgo";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { MessageSquare } from "lucide-react";
 import CommentInput from "../comment/CommentInput";
 import CommentList from "../comment/CommentList";
 import PostVoteButtons from "./PostVoteButtons";
+import ReportButton from "../ReportButton";
+import DeleteButton from "../DeleteButton";
 
 interface PostProps {
   post:
@@ -61,9 +63,9 @@ async function Post({ post, userId }: PostProps) {
                   </a>
                 )}
                 <span>•</span>
-                {/* {post.publishedAt && (
+                {post.publishedAt && (
                   <TimeAgo date={new Date(post.publishedAt)} />
-                )} */}
+                )}
               </>
             )}
           </div>
@@ -106,7 +108,7 @@ async function Post({ post, userId }: PostProps) {
       {/* Buttons */}
       <div className="absolute top-2 right-2">
         <div className="flex items-center gap-2">
-          {/* <ReportButton contentId={post._id} />
+          <ReportButton contentId={post._id} />
 
           {post.author?._id && (
             <DeleteButton
@@ -114,7 +116,7 @@ async function Post({ post, userId }: PostProps) {
               contentId={post._id}
               contentType="post"
             />
-          )} */}
+          )}
         </div>
       </div>
     </article>
